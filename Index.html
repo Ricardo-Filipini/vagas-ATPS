@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infográfico: Ranking de Vagas de TI Flexíveis</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary-color: #005f73;
+            --secondary-color: #0a9396;
+            --accent-color: #ee9b00;
+            --background-color: #f8f9fa;
+            --text-color: #343a40;
+            --light-gray: #e9ecef;
+            --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+     .infographic-container {
+            width: 100%;
+            max-width: 900px;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 700;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        main {
+            padding: 30px;
+        }
+
+        /* Tooltip Styles */
+     .tooltip {
+            position: relative;
+            cursor: help;
+            color: var(--secondary-color);
+            font-weight: 600;
+            border-bottom: 2px dotted var(--accent-color);
+        }
+
+     .tooltip.tooltip-text {
+            visibility: hidden;
+            width: 280px;
+            background-color: var(--text-color);
+            color: var(--white);
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -140px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+     .tooltip.tooltip-text::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--text-color) transparent transparent transparent;
+        }
+
+     .tooltip:hover.tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Accordion Styles */
+     .accordion-item {
+            border: 1px solid var(--light-gray);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+        
+     .accordion-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+     .accordion-header {
+            background-color: var(--white);
+            color: var(--primary-color);
+            cursor: pointer;
+            padding: 20px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        
+     .accordion-header:hover {
+            background-color: #f7f7f7;
+        }
+
+     .title-group {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            margin-right: 15px;
+       }
+       
+     .main-title {
+           display: flex;
+           align-items: center;
+           font-size: 1.1em;
+           margin-bottom: 5px;
+       }
+       
+     .main-title span:first-child {
+           margin-right: 10px;
+           font-size: 1.5em;
+       }
+       
+     .secretaria-title {
+           font-size: 0.9em;
+           font-weight: 400;
+           color: #6c757d;
+           margin-left: 34px; /* Align with text after icon */
+           margin-bottom: 8px;
+       }
+
+     .short-desc {
+           font-size: 0.85em;
+           font-weight: 300;
+           color: var(--text-color);
+           margin-left: 34px; /* Align with text after icon */
+           line-height: 1.5;
+       }
+
+     .icon {
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+            font-weight: 300;
+            align-self: flex-start;
+            margin-top: 2px;
+        }
+
+     .accordion-item.active.icon {
+            transform: rotate(45deg);
+        }
+
+     .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            background-color: var(--white);
+            font-size: 1em;
+            line-height: 1.7;
+        }
+        
+     .content-inner {
+            padding: 0 25px 25px 25px;
+        }
+
+     .accordion-content h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            border-bottom: 1px solid var(--light-gray);
+            padding-bottom: 10px;
+        }
+        
+     .accordion-content ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+     .accordion-content li {
+            margin-bottom: 10px;
+            word-break: break-word;
+        }
+
+     .accordion-content li strong {
+            color: var(--primary-color);
+        }
+        
+     .accordion-content a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+       }
+       
+     .accordion-content a:hover {
+            text-decoration: underline;
+       }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            main {
+                padding: 20px;
+            }
+         .accordion-header {
+                font-size: 1em;
+                padding: 15px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="infographic-container">
+        <header>
+            <h1>Ranking de Vagas de TI</h1>
+            <p>Flexibilidade e Teletrabalho no Serviço Público Federal</p>
+        </header>
+
+        <main>
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <div class="title-group">
+                        <div class="main-title"><span>⚙️</span> <span>MGI | Vaga MGI-ATPS-N07</span></div>
+                        <div class="secretaria-title">Diretoria de Soluções Digitais</div>
+                        <p class="short-desc">Atuação na gestão de sistemas de pessoal, acompanhando o ciclo de vida laboral dos servidores federais.</p>
+                    </div>
+                    <span class="icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <h3>Análise de Flexibilidade</h3>
+                        <p>Como órgão central do <span class="tooltip">PGD<span class="tooltip-text">O Programa de Gestão e Desempenho (PGD) substitui o controle de ponto por uma gestão focada em resultados e entregas, viabilizando o teletrabalho e horários flexíveis.</span></span>, o MGI possui a cultura mais alinhada à inovação e gestão por resultados. A dispensa do controle de ponto é a norma, e a <span class="tooltip">flexibilidade de horários<span class="tooltip-text">Com o PGD, a jornada é aferida pelo cumprimento de metas, não pelo relógio de ponto. Isso permite organizar seus horários para evitar o trânsito, por exemplo.</span></span> é máxima, condicionada apenas às entregas.</p>
+                        <h3>Vantagens Estratégicas</h3>
+                        <p>Atuar no epicentro da modernização do Estado, trabalhando diretamente com a digitalização de serviços e processos governamentais.</p>
+                        <h3>Portarias Relevantes</h3>
+                        <ul>
+                            <li><strong>Portaria MGI nº 4.805/2024:</strong> Autoriza o PGD no âmbito do Ministério.</li>
+                            <li><strong>Portaria SE/MGI nº 8.321/2024:</strong> Institui o PGD na Secretaria-Executiva.</li>
+                        </ul>
+                        <h3>Links Úteis</h3>
+                        <ul>
+                            <li><a href="https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?jornal=515&pagina=89&data=15/07/2024" target="_blank">Portaria de Autorização no DOU</a></li>
+                            <li><a href="https://www.gov.br/gestao/pt-br/assuntos/programa-de-gestao-e-desempenho" target="_blank">Página do PGD no MGI</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <div class="title-group">
+                        <div class="main-title"><span>🛡️</span> <span>PR (GSI) | Vaga PR-ATPS-N02</span></div>
+                        <div class="secretaria-title">Secretaria de Segurança da Informação e Cibernética</div>
+                        <p class="short-desc">Atuação em segurança da informação e cibersegurança, com foco em conscientização e educação digital.</p>
+                    </div>
+                    <span class="icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <h3>Análise de Flexibilidade</h3>
+                        <p>O GSI demonstra alta maturidade na implementação do PGD, com portaria recente de 2024. O trabalho em cibersegurança é técnico, baseado em projetos e ideal para execução remota e mensuração por resultados.</p>
+                        <h3>Vantagens Estratégicas</h3>
+                        <p>Atuação em área de altíssima prioridade e relevância, com impacto direto na segurança digital de toda a infraestrutura governamental.</p>
+                        <h3>Portarias Relevantes</h3>
+                        <ul>
+                            <li><strong>Portaria GSI/PR nº 141/2024:</strong> Atualiza e adequa o PGD do GSI às novas regras federais.</li>
+                        </ul>
+                        <h3>Links Úteis</h3>
+                        <ul>
+                            <li><a href="https://www.in.gov.br/web/dou/-/portaria-gsi/pr-n-141-de-30-de-outubro-de-2024-593168836" target="_blank">Portaria de Atualização no DOU</a></li>
+                            <li><a href="https://www.gov.br/gsi/pt-br/acesso-a-informacao/institucional/plano-estrategico-institucional-do-gsi/programa-de-gestao-e-desempenho-pgd" target="_blank">Página do PGD no GSI</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <div class="title-group">
+                        <div class="main-title"><span>🎓</span> <span>MEC | Vaga MEC-ATPS-N03</span></div>
+                        <div class="secretaria-title">Secretaria de Gestão da Informação, Inovação e Avaliação de Políticas Educacionais (SEGAPE)</div>
+                        <p class="short-desc">Foco em governança de dados, inovação e desenvolvimento de soluções de inteligência artificial na educação.</p>
+                    </div>
+                    <span class="icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <h3>Análise de Flexibilidade</h3>
+                        <p>Possui estrutura normativa robusta e recente para o PGD (portarias de 2024/2025). A vaga está em uma secretaria de inovação, indicando um ambiente propício ao <span class="tooltip">teletrabalho<span class="tooltip-text">Pode ser em regime parcial (híbrido) ou integral (100% remoto), dependendo das regras de cada órgão e da natureza da atividade.</span></span> e à gestão por resultados.</p>
+                        <h3>Vantagens Estratégicas</h3>
+                        <p>Oportunidade de trabalhar na vanguarda da transformação digital da educação, utilizando dados para aprimorar políticas públicas de impacto nacional.</p>
+                        <h3>Portarias Relevantes</h3>
+                        <ul>
+                            <li><strong>Portaria MEC nº 1.087/2024:</strong> Autoriza o PGD em todo o Ministério.</li>
+                            <li><strong>Portaria SEGAPE/MEC nº 2/2025:</strong> Institui o PGD especificamente na secretaria da vaga.</li>
+                        </ul>
+                        <h3>Links Úteis</h3>
+                        <ul>
+                            <li><a href="https://www.gov.br/mec/pt-br/assuntos/cetremec/pgd" target="_blank">Página do PGD no MEC</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <div class="title-group">
+                        <div class="main-title"><span>📊</span> <span>MDS | Vaga MDS-ATPS-N06</span></div>
+                        <div class="secretaria-title">Secretaria de Avaliação, Gestão da Informação e Cadastro Único</div>
+                        <p class="short-desc">Análise e avaliação dos dados do Cadastro Único, especificação de regras de negócio e desenvolvimento de painéis de gestão.</p>
+                    </div>
+                    <span class="icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <h3>Análise de Flexibilidade</h3>
+                        <p>PGD formalizado com portaria detalhada (2024), estabelecendo regras claras para teletrabalho (parcial e integral). O trabalho é intensivo em análise de dados, atividade eminentemente digital e ideal para o modelo PGD.</p>
+                        <h3>Vantagens Estratégicas</h3>
+                        <p>Trabalhar com uma das maiores bases de dados sociais do mundo (Cadastro Único), gerando inteligência para dezenas de programas sociais.</p>
+                        <h3>Portarias Relevantes</h3>
+                        <ul>
+                            <li><strong>Portaria nº 1.032/2024:</strong> Autoriza e detalha a implementação do PGD no MDS.</li>
+                        </ul>
+                        <h3>Links Úteis</h3>
+                        <ul>
+                            <li><a href="https://www.gov.br/mds/pt-br/servicos/programa-de-gestao" target="_blank">Página do PGD no MDS</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <div class="title-group">
+                        <div class="main-title"><span>🏙️</span> <span>MCID | Vaga MCID-ATPS-N10</span></div>
+                        <div class="secretaria-title">Secretaria Nacional de Desenvolvimento Urbano e Metropolitano</div>
+                        <p class="short-desc">Promover inovações tecnológicas e de gestão em políticas urbanas, com foco em transformação digital e cidades inteligentes.</p>
+                    </div>
+                    <span class="icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <h3>Análise de Flexibilidade</h3>
+                        <p>Possui portarias recentes (2023 e 2024) que instituem o PGD. A vaga está em uma unidade ligada à inovação e "cidades inteligentes", contexto que favorece fortemente a adoção de modelos de trabalho flexíveis.</p>
+                        <h3>Vantagens Estratégicas</h3>
+                        <p>Atuar na formulação de políticas de vanguarda para o futuro das cidades brasileiras, integrando tecnologia e desenvolvimento urbano.</p>
+                        <h3>Portarias Relevantes</h3>
+                        <ul>
+                            <li><strong>Portaria MCID nº 121/2023:</strong> Autoriza a instituição do PGD no Ministério.</li>
+                            <li><strong>Portaria SE/MCID Nº 241/2023:</strong> Institui o PGD na Secretaria-Executiva.</li>
+                        </ul>
+                        <h3>Links Úteis</h3>
+                        <ul>
+                            <li><a href="https://www.gov.br/cidades/pt-br/acesso-a-informacao/servidores/pgd-mcid/normativos" target="_blank">Página de Normativos do PGD no MCID</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <div class="title-group">
+                        <div class="main-title"><span>🏥</span> <span>MS | Vaga MS-ATPS-N06</span></div>
+                        <div class="secretaria-title">Secretaria de Informação e Saúde Digital (SEIDIGI)</div>
+                        <p class="short-desc">Atuação em monitoramento, avaliação e gerenciamento de projetos em informação, saúde digital e telessaúde.</p>
+                    </div>
+                    <span class="icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <h3>Análise de Flexibilidade</h3>
+                        <p>PGD autorizado desde 2022. A existência de uma Secretaria dedicada à Saúde Digital, com portaria própria de 2024, é um forte indicativo de alinhamento com o trabalho remoto e baseado em dados, funcionando como um polo de inovação.</p>
+                        <h3>Vantagens Estratégicas</h3>
+                        <p>Contribuir para a modernização do SUS, desenvolvendo e implementando o ecossistema de saúde digital no Brasil.</p>
+                        <h3>Portarias Relevantes</h3>
+                        <ul>
+                            <li><strong>Portaria GM/MS nº 3.699/2022:</strong> Autoriza o PGD em todo o Ministério da Saúde.</li>
+                            <li><strong>Portaria SEIDIGI/MS Nº 1/2024:</strong> Institui o PGD na Secretaria de Informação e Saúde Digital.</li>
+                        </ul>
+                        <h3>Links Úteis</h3>
+                        <ul>
+                            <li><a href="https://bvsms.saude.gov.br/bvs/saudelegis/seidigi/2024/prt0001_15_05_2024.html" target="_blank">Portaria da SEIDIGI no BVSMS</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <div class="title-group">
+                        <div class="main-title"><span>🌱</span> <span>MDA | Vaga MDA-ATPS-N04</span></div>
+                        <div class="secretaria-title">Gabinete do Ministro - Coordenação-Geral de Informações</div>
+                        <p class="short-desc">Coletar, sistematizar e analisar informações estratégicas, garantindo a atualização de bases de dados e sistemas.</p>
+                    </div>
+                    <span class="icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <h3>Análise de Flexibilidade</h3>
+                        <p>PGD autorizado via portaria de 2023. O trabalho de sistematização de informações e gestão de bases de dados é totalmente compatível com o teletrabalho e o modelo de gestão por resultados.</p>
+                        <h3>Vantagens Estratégicas</h3>
+                        <p>Apoiar diretamente a tomada de decisão do Gabinete do Ministro com dados e análises sobre políticas para agricultura familiar.</p>
+                        <h3>Portarias Relevantes</h3>
+                        <ul>
+                            <li><strong>Portaria MDA nº 11/2023:</strong> Autoriza a implementação do PGD no âmbito do MDA.</li>
+                            <li><strong>Portaria SE/MDA nº 5/2023:</strong> Institui o PGD na Secretaria-Executiva.</li>
+                        </ul>
+                        <h3>Links Úteis</h3>
+                        <ul>
+                            <li><a href="https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?jornal=515&pagina=90&data=24/05/2023" target="_blank">Portaria de Autorização no DOU</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        <footer>
+            <p>Análise baseada no "Caderno de Vagas" e em normativos públicos sobre o PGD. A implementação final da flexibilidade pode variar conforme a chefia e a unidade específica.</p>
+        </footer>
+    </div>
+
+    <script>
+        const accordionItems = document.querySelectorAll('.accordion-item');
+
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            const content = item.querySelector('.accordion-content');
+            const icon = item.querySelector('.icon');
+
+            header.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Fecha todos os outros itens para manter a interface limpa
+                accordionItems.forEach(otherItem => {
+                    if (otherItem!== item) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.accordion-content').style.maxHeight = '0px';
+                        otherItem.querySelector('.icon').textContent = '+';
+                    }
+                });
+
+                if (isActive) {
+                    item.classList.remove('active');
+                    content.style.maxHeight = '0px';
+                    icon.textContent = '+';
+                } else {
+                    item.classList.add('active');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.textContent = '−';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
+
