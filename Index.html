@@ -30,7 +30,7 @@
             min-height: 100vh;
         }
 
-     .infographic-container {
+    .infographic-container {
             width: 100%;
             max-width: 900px;
             background: var(--white);
@@ -63,7 +63,7 @@
         }
 
         /* Tooltip Styles */
-     .tooltip {
+    .tooltip {
             position: relative;
             cursor: help;
             color: var(--secondary-color);
@@ -71,7 +71,7 @@
             border-bottom: 2px dotted var(--accent-color);
         }
 
-     .tooltip.tooltip-text {
+    .tooltip.tooltip-text {
             visibility: hidden;
             width: 280px;
             background-color: var(--text-color);
@@ -91,7 +91,7 @@
             line-height: 1.4;
         }
 
-     .tooltip.tooltip-text::after {
+    .tooltip.tooltip-text::after {
             content: "";
             position: absolute;
             top: 100%;
@@ -102,13 +102,13 @@
             border-color: var(--text-color) transparent transparent transparent;
         }
 
-     .tooltip:hover.tooltip-text {
+    .tooltip:hover.tooltip-text {
             visibility: visible;
             opacity: 1;
         }
 
         /* Accordion Styles */
-     .accordion-item {
+    .accordion-item {
             border: 1px solid var(--light-gray);
             border-radius: 10px;
             margin-bottom: 15px;
@@ -116,11 +116,11 @@
             transition: box-shadow 0.3s ease;
         }
         
-     .accordion-item:hover {
+    .accordion-item:hover {
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
-     .accordion-header {
+    .accordion-header {
             background-color: var(--white);
             color: var(--primary-color);
             cursor: pointer;
@@ -137,30 +137,30 @@
             transition: background-color 0.3s ease;
         }
         
-     .accordion-header:hover {
+    .accordion-header:hover {
             background-color: #f7f7f7;
         }
 
-     .title-group {
+    .title-group {
             display: flex;
             flex-direction: column;
             flex-grow: 1;
             margin-right: 15px;
        }
        
-     .main-title {
+    .main-title {
            display: flex;
            align-items: center;
            font-size: 1.1em;
            margin-bottom: 5px;
        }
        
-     .main-title span:first-child {
+    .main-title span:first-child {
            margin-right: 10px;
            font-size: 1.5em;
        }
        
-     .secretaria-title {
+    .secretaria-title {
            font-size: 0.9em;
            font-weight: 400;
            color: #6c757d;
@@ -168,7 +168,7 @@
            margin-bottom: 8px;
        }
 
-     .short-desc {
+    .short-desc {
            font-size: 0.85em;
            font-weight: 300;
            color: var(--text-color);
@@ -176,7 +176,7 @@
            line-height: 1.5;
        }
 
-     .icon {
+    .icon {
             font-size: 1.5em;
             transition: transform 0.3s ease;
             font-weight: 300;
@@ -184,11 +184,11 @@
             margin-top: 2px;
         }
 
-     .accordion-item.active.icon {
+    .accordion-item.active.icon {
             transform: rotate(45deg);
         }
 
-     .accordion-content {
+    .accordion-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease-out, padding 0.4s ease-out;
@@ -197,38 +197,38 @@
             line-height: 1.7;
         }
         
-     .content-inner {
+    .content-inner {
             padding: 0 25px 25px 25px;
         }
 
-     .accordion-content h3 {
+    .accordion-content h3 {
             color: var(--secondary-color);
             margin-top: 0;
             border-bottom: 1px solid var(--light-gray);
             padding-bottom: 10px;
         }
         
-     .accordion-content ul {
+    .accordion-content ul {
             list-style-type: none;
             padding-left: 0;
         }
         
-     .accordion-content li {
+    .accordion-content li {
             margin-bottom: 10px;
             word-break: break-word;
         }
 
-     .accordion-content li strong {
+    .accordion-content li strong {
             color: var(--primary-color);
         }
         
-     .accordion-content a {
+    .accordion-content a {
             color: var(--accent-color);
             text-decoration: none;
             font-weight: 600;
        }
        
-     .accordion-content a:hover {
+    .accordion-content a:hover {
             text-decoration: underline;
        }
 
@@ -252,7 +252,7 @@
             main {
                 padding: 20px;
             }
-         .accordion-header {
+        .accordion-header {
                 font-size: 1em;
                 padding: 15px;
             }
@@ -329,7 +329,7 @@
             <div class="accordion-item">
                 <button class="accordion-header">
                     <div class="title-group">
-                        <div class="main-title"><span>⚙️</span> <span>MGI | Vaga MGI-ATPS-N05</span></div>
+                        <div class="main-title"><span>📑</span> <span>MGI | Vaga MGI-ATPS-N05</span></div>
                         <div class="secretaria-title">Diretoria de Serviços de Aposentados e Pensionistas</div>
                         <p class="short-desc">Apoiar a implementação do projeto "Fábrica de Digitalização" do acervo funcional da Administração Pública.</p>
                     </div>
@@ -348,6 +348,30 @@
                         <h3>Links Úteis</h3>
                         <ul>
                             <li><a href="https://www.gov.br/gestao/pt-br/assuntos/programa-de-gestao-e-desempenho" target="_blank">Página do PGD no MGI</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <div class="title-group">
+                        <div class="main-title"><span>📂</span> <span>MGI | Vaga MGI-ATPS-N04</span></div>
+                        <div class="secretaria-title">Arquivo Nacional - Superintendência Regional no DF</div>
+                        <p class="short-desc">Atuar na gestão do Sistema de Gestão de Documentos e Arquivos (SIGA) da Administração Pública.</p>
+                    </div>
+                    <span class="icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <h3>Análise de Flexibilidade</h3>
+                        <p>Mesma análise das outras vagas do MGI. O órgão é pioneiro no PGD e a atividade de gestão de sistemas é altamente compatível com o teletrabalho.</p>
+                        <h3>Vantagens Estratégicas</h3>
+                        <p>Trabalhar com a governança da informação em nível federal, atuando em um sistema que impacta toda a administração pública.</p>
+                        <h3>Portarias Relevantes</h3>
+                        <ul>
+                            <li><strong>Portaria MGI nº 4.805/2024:</strong> Autoriza o PGD no âmbito do Ministério.</li>
+                            <li><strong>Portaria AN/MGI Nº 186/2024:</strong> Institui o PGD no âmbito do Arquivo Nacional.</li>
                         </ul>
                     </div>
                 </div>
@@ -398,7 +422,7 @@
                         <p>Trabalhar com uma das maiores bases de dados sociais do mundo (Cadastro Único), gerando inteligência para dezenas de programas sociais.</p>
                         <h3>Portarias Relevantes</h3>
                         <ul>
-                            <li><strong>Portaria nº 1.032/2024:</strong> Autoriza e detalha a implementação do PGD no MDS.</li>
+                            <li><strong>Portaria MDS nº 1.032/2024:</strong> Autoriza e detalha a implementação do PGD no MDS.</li>
                         </ul>
                         <h3>Links Úteis</h3>
                         <ul>
@@ -431,6 +455,29 @@
                         <h3>Links Úteis</h3>
                         <ul>
                             <li><a href="https://www.gov.br/cidades/pt-br/acesso-a-informacao/servidores/pgd-mcid/normativos" target="_blank">Página de Normativos do PGD no MCID</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <div class="title-group">
+                        <div class="main-title"><span>🌐</span> <span>MPI | Vaga MPI-ATPS-N01</span></div>
+                        <div class="secretaria-title">Secretarias Nacionais (Direitos Territoriais, Gestão Ambiental, Promoção de Direitos)</div>
+                        <p class="short-desc">Desenvolver e gerir soluções tecnológicas, sistemas de georreferenciamento e painéis de dados para políticas indígenas.</p>
+                    </div>
+                    <span class="icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <h3>Análise de Flexibilidade</h3>
+                        <p>O PGD do MPI foi autorizado pela Portaria MPI Nº 67/2024, sendo uma regulamentação recente e alinhada às novas diretrizes. As atividades descritas são altamente técnicas e digitais, ideais para o teletrabalho.</p>
+                        <h3>Vantagens Estratégicas</h3>
+                        <p>Oportunidade única de aplicar tecnologia de ponta (GIS, Data Analytics) em projetos de alto impacto social e ambiental para a proteção dos povos indígenas.</p>
+                        <h3>Portarias Relevantes</h3>
+                        <ul>
+                            <li><strong>Portaria MPI Nº 67/2024:</strong> Autoriza a instituição do PGD no âmbito do Ministério dos Povos Indígenas.</li>
                         </ul>
                     </div>
                 </div>
@@ -510,6 +557,52 @@
                         <h3>Portarias Relevantes</h3>
                         <ul>
                             <li><strong>Portaria SE/MMulheres nº 1/2023:</strong> Torna pública a abertura para adesão ao Programa de Gestão do Ministério das Mulheres.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <div class="title-group">
+                        <div class="main-title"><span>⚖️</span> <span>MDHC | Vaga MDHC-ATPS-01</span></div>
+                        <div class="secretaria-title">Secretaria Executiva</div>
+                        <p class="short-desc">Produzir e disseminar dados e indicadores em direitos humanos, gerenciando o Observatório (ObservaDH).</p>
+                    </div>
+                    <span class="icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <h3>Análise de Flexibilidade</h3>
+                        <p>A atividade é centrada na análise de dados e produção de relatórios, sendo altamente compatível com o modelo PGD e o teletrabalho. O órgão está sujeito às normativas gerais de flexibilidade do serviço público.</p>
+                        <h3>Vantagens Estratégicas</h3>
+                        <p>Trabalhar na intersecção entre ciência de dados e políticas de direitos humanos, gerando inteligência para uma área de alta relevância social.</p>
+                        <h3>Portarias Relevantes</h3>
+                        <ul>
+                            <li>A portaria específica do MDHC não foi localizada, mas o órgão segue as diretrizes do Decreto nº 11.072/2022.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <div class="title-group">
+                        <div class="main-title"><span>🏅</span> <span>ME | Vaga MESP-ATPS-N02</span></div>
+                        <div class="secretaria-title">Secretaria-Executiva (SE)</div>
+                        <p class="short-desc">Desenvolver e manter sistemas de informações gerenciais para consolidar dados de projetos esportivos.</p>
+                    </div>
+                    <span class="icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <h3>Análise de Flexibilidade</h3>
+                        <p>A natureza do trabalho, focada no desenvolvimento e manutenção de sistemas de informação, é ideal para o PGD. A mensuração de resultados é objetiva e a execução remota é plenamente viável.</p>
+                        <h3>Vantagens Estratégicas</h3>
+                        <p>Oportunidade de unir competências em TI com a área do esporte, contribuindo para a gestão baseada em dados de políticas esportivas.</p>
+                        <h3>Portarias Relevantes</h3>
+                        <ul>
+                            <li>A portaria específica do Ministério do Esporte não foi localizada, mas o órgão segue as diretrizes do Decreto nº 11.072/2022.</li>
                         </ul>
                     </div>
                 </div>
